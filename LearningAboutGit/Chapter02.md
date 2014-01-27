@@ -1,3 +1,10 @@
+## Preface ##
+
+This is a modified version of Allen Downey's AmGit.  The original version, is available from https://github.com/AllenDowney/amgit/tree/master/en.
+
+Both books are under the Creative Commons Attribution Non Commercial Share Alike 3.0 license, which you can read at
+http://creativecommons.org/licenses/by-nc-sa/3.0/
+
 # The first use case #
 
 ## Outline ##
