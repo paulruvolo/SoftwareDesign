@@ -5,7 +5,7 @@ Created on Sat Feb  1 22:02:04 2014
 @author: pruvolo
 """
 
-def loadSeq(fasta_file):
+def load_seq(fasta_file):
     """ Reads a FASTA file and returns the DNA sequence as a string.
 
     fasta_file: the path to the FASTA file containing the DNA sequence
