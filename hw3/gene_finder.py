@@ -33,16 +33,17 @@ def coding_strand_to_AA_unit_tests():
         
     # YOUR IMPLEMENTATION HERE
 
-def get_complement(dna):
-    """ Computes the complementary sequence of DNA for the specfied DNA sequence
+def get_reverse_complement(dna):
+    """ Computes the reverse complementary sequence of DNA for the specfied DNA
+        sequence
     
         dna: a DNA sequence represented as a string
-        returns: the complementary DNA sequence represented as a string
+        returns: the reverse complementary DNA sequence represented as a string
     """
     
     # YOUR IMPLEMENTATION HERE
     
-def get_complement_unit_tests():
+def get_reverse_complement_unit_tests():
     """ Unit tests for the get_complement function """
         
     # YOUR IMPLEMENTATION HERE    
@@ -63,10 +64,24 @@ def rest_of_ORF_unit_tests():
         
     # YOUR IMPLEMENTATION HERE
         
-def find_all_ORFs(dna):
+def find_all_ORFs_oneframe(dna):
     """ Finds all non-nested open reading frames in the given DNA sequence and returns
-        them as a list.  By non-nested we mean that an ORF that occurs entirely within
-        another ORF will not be included in the returned list of ORFs.
+        them as a list.  This function should only find ORFs that are in the default
+        frame of the sequence (i.e. they start on indices that are multiples of 3).
+        By non-nested we mean that if an ORF occurs entirely within
+        another ORF, it should not be included in the returned list of ORFs.
+        
+        dna: a DNA sequence
+        returns: a list of non-nested ORFs
+    """
+     
+    # YOUR IMPLEMENTATION HERE        
+        
+def find_all_ORFs(dna):
+    """ Finds all non-nested open reading frames in the given DNA sequence in all 3
+        possible frames and returns them as a list.  By non-nested we mean that if an
+        ORF occurs entirely within another ORF and they are both in the same frame,
+        it should not be included in the returned list of ORFs.
         
         dna: a DNA sequence
         returns: a list of non-nested ORFs
