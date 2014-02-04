@@ -76,7 +76,12 @@ def find_all_ORFs_oneframe(dna):
     """
      
     # YOUR IMPLEMENTATION HERE        
-        
+     
+def find_all_ORFs_oneframe_unit_tests():
+    """ Unit tests for the find_all_ORFs_oneframe function """
+
+    # YOUR IMPLEMENTATION HERE
+
 def find_all_ORFs(dna):
     """ Finds all non-nested open reading frames in the given DNA sequence in all 3
         possible frames and returns them as a list.  By non-nested we mean that if an
