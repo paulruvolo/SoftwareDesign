@@ -120,6 +120,11 @@ def longest_ORF(dna):
 
     # YOUR IMPLEMENTATION HERE
 
+def longest_ORF_unit_tests():
+    """ Unit tests for the longest_ORF function """
+
+    # YOUR IMPLEMENTATION HERE
+
 def longest_ORF_noncoding(dna, num_trials):
     """ Computes the maximum length of the longest ORF over num_trials shuffles
         of the specfied DNA sequence
