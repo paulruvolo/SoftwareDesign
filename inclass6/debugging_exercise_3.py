@@ -6,6 +6,7 @@ Created on Sun Feb  9 17:52:54 2014
 """
 
 def get_primes(n):
+    """ Returns a list of all prime integers in the range [1,n] """
     retval = []
     isPrime = True
 

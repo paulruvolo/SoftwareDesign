@@ -6,6 +6,7 @@ Created on Sun Feb  9 17:52:54 2014
 """
 
 def factorial(n):
+    """ Computes the factorial of the non-negative input integer n """
     retval = 1
     for i in range(n):
         retval *= i
