@@ -10,7 +10,6 @@ def factorial(n):
     return_val = 1
     for i in range(n):
         return_val *= i
-        assert(return_val >= 1)
     return return_val
 
 if __name__ == '__main__':
