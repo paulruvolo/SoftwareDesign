@@ -124,14 +124,14 @@ if __name__ == '__main__':
             - spell_check_alg2
             - spell_check_alg3
     """
-    spell_check = spell_check_alg2
+    spell_check = spell_check_alg1
     
     """ Specifies the number of words of the constitution to spell check.  Note:
         we start from the beginning of the constitution and check until the
         word limit is reached
     """
     num_words_to_check = 2000
-    make_plot = True
+    make_plot = False
     if not(make_plot):
         spell_check(1,num_words_to_check)
     else:
