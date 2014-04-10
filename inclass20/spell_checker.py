@@ -63,7 +63,7 @@ def get_words(file_name):
     f.close()
     return re.findall('\w+',s)
 
-def spell_check_alg1(skip_factor):
+def spell_check_alg1(skip_factor, num_words_to_check):
     """ Algorithm 1 for spell checking
     
         skip_factor: the skip factor to use when constructing the dictionary
@@ -78,12 +78,12 @@ def spell_check_alg1(skip_factor):
         for w in all_words:
             if current_word == w:
                 spelled_correctly = True
-        if i % 100 == 0 and i > 0:
+        if i + 1 == num_words_to_check:
             current_time = time.time()
-            print "time per word: %.10f" % ((current_time - start_time)/(i+1))
-            return (current_time - start_time)/(i+1)
+            print "running time: %.10f" % (current_time - start_time)
+            return current_time - start_time
 
-def spell_check_alg2(skip_factor):
+def spell_check_alg2(skip_factor, num_words_to_check):
     """ Algorithm 2 for spell checking
     
         skip_factor: the skip factor to use when constructing the dictionary
@@ -95,12 +95,12 @@ def spell_check_alg2(skip_factor):
     for i in range(len(words_to_spellcheck)):
         current_word = words_to_spellcheck[i].lower()
         spelled_correctly = current_word in all_words
-        if i % 1000 == 0 and i > 0:
+        if i + 1 == num_words_to_check:
             current_time = time.time()
-            print "time per word: %.10f" % ((current_time - start_time)/(i+1))
-            return (current_time - start_time)/(i+1)
+            print "running time: %.10f" % (current_time - start_time)
+            return current_time - start_time
 
-def spell_check_alg3(skip_factor):
+def spell_check_alg3(skip_factor, num_words_to_check):
     """ Algorithm 3 for spell checking
     
         skip_factor: the skip factor to use when constructing the dictionary
@@ -112,20 +112,36 @@ def spell_check_alg3(skip_factor):
     for i in range(len(words_to_spellcheck)):
         current_word = words_to_spellcheck[i].lower()
         spelled_correctly = bisect_in(current_word,all_words)
-        if i % 1000 == 0 and i > 0:
+        if i + 1 == num_words_to_check:
             current_time = time.time()
-            print "time per word: %.10f" % ((current_time - start_time)/(i+1))
-            return (current_time - start_time)/(i+1)
+            print "running time: %.10f" % (current_time - start_time)
+            return current_time - start_time
 
 if __name__ == '__main__':
-    spell_check = spell_check_alg1
+    """ select the algorithm to use for spell checking
+        choices are:
+            - spell_check_alg1
+            - spell_check_alg2
+            - spell_check_alg3
+    """
+    spell_check = spell_check_alg2
+    
+    """ Specifies the number of words of the constitution to spell check.  Note:
+        we start from the beginning of the constitution and check until the
+        word limit is reached
+    """
+    num_words_to_check = 2000
     make_plot = True
     if not(make_plot):
-        spell_check(1)
+        spell_check(1,num_words_to_check)
     else:
         average_time = []
         total_words = len(load_words_as_list(1))
         for i in range(1,20):
-            average_time.append(spell_check(i))
+            average_time.append(spell_check(i,num_words_to_check))
         pyplot.plot([float(total_words)/i for i in range(1,20)],average_time)
+        ymin, ymax = pyplot.ylim()
+        pyplot.ylim(0,ymax)
+        pyplot.xlabel('Dictionary Size')
+        pyplot.ylabel('Running Time (seconds)')
         pyplot.show()
